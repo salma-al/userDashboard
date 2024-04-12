@@ -1,7 +1,22 @@
-<app-card></app-card>
+
+<div class="container">
+<div class="row g-4 my-3">
+     @if(users && users.length > 0) {
+          @for(user of users; track user.id) {
+               <div class="col-md-4 col-sm-6 d-flex justify-content-center">
+                    <app-card [user]="user"></app-card>
+               </div>
+          }
+     } @else {
+          <h1>Loading...</h1>
+     }
+</div>
+
 
 <mat-paginator [length]="100"
               [pageSize]="10"
               [pageSizeOptions]="[5, 10, 25, 100]"
               aria-label="Select page">
 </mat-paginator>
+
+</div>
